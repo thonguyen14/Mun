@@ -1,4 +1,4 @@
-thank Revenge#5536 sented !
+thank Revenge#5536 shared !
 # Run in Tmux
 
     apt install tmux
