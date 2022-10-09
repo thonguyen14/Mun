@@ -8,7 +8,7 @@ mund keys list
 
 ##thực hiện với mnemonics
 ```
-mund keys add <Wallet-name> --recover
+mund keys add <Wallet-name> --keyring-backend test --recover
 ```
 # 4. chờ cho full node trên máy mới sync hoàn toàn 
  ##kiểm tra trạng thái sync
