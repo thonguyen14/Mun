@@ -9,7 +9,7 @@ thank Revenge#5536 shared !
 ```
 ./mun_restake.sh
 ```  
-    Ctrl+B then D
+Ctrl+B then D
 ##To end the retake, run the following command
 ```
  tmux ls
