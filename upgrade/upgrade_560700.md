@@ -1,6 +1,14 @@
- DO NOT UPGRADE BEFORE CHAIN REACHES THE BLOCK 560700
-
-AUTOMATIC UPGRADE
+ DO NOT UPGRADE BEFORE CHAIN REACHES THE BLOCK 560700 , Option choose Manual or AUTOMATIC
+# Manual 
+```
+sudo systemctl stop mund
+cd $HOME && sudo rm -rf $HOME/mun
+git clone https://github.com/munblockchain/mun.git
+cd mun
+make install
+sudo systemctl restart mund && journalctl -fu mund -o cat
+```
+# AUTOMATIC UPGRADE
 
 run inside a tmux session
 
