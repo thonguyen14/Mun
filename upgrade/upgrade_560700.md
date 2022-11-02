@@ -19,7 +19,7 @@ wget -O upgrade.sh https://raw.githubusercontent.com/thonguyen14/Mun/main/upgrad
 
 you are now ready for upgrade!
 
-![image](https://user-images.githubusercontent.com/80441573/198813828-dad56226-12d2-4f95-87e7-69fff337341d.png)
+![image](https://user-images.githubusercontent.com/80441573/199466612-4b89b56a-c652-403b-90fb-029429186d6b.png)
 
 you can monitor it too to check how much blocks left for the upgrade
 
