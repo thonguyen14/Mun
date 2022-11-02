@@ -1,4 +1,4 @@
- DO NOT UPGRADE BEFORE CHAIN REACHES THE BLOCK 560700 , Option choose Manual or AUTOMATIC
+ DO NOT UPGRADE BEFORE CHAIN REACHES THE BLOCK 560700 , Option Manual or AUTOMATIC
 # Manual 
 ```
 sudo systemctl stop mund
