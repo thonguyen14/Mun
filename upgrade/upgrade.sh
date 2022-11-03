@@ -10,9 +10,23 @@ for((;;)); do
 	if ((height>=$BLOCK)); then
 
 		sudo systemctl stop mund
+		echo "=============================================================================="
+                echo "=============Fetching latest version============="
 		cd $HOME && sudo rm -rf $HOME/mun
 		git clone https://github.com/munblockchain/mun.git
+		echo "=============Compiling binary============="
 		cd mun && make install
+		mund version
+		sudo rm -rf /var/log/mund/
+                cd $HOME/mun && make log-files
+                echo "=============Preparing binary upgrades============="
+                cd $HOME/.mun/upgrade_manager/upgrades && mkdir mun-upgrade-v2 && cd mun-upgrade-v2 && mkdir bin
+                cp $HOME/go/bin/mund $HOME/.mun/upgrade_manager/upgrades/mun-upgrade-v2/bin/
+                echo "=============Upgrading service configration============="
+                sudo sed -i 's/=on/=true/g' /etc/systemd/system/mund.service
+                sudo sed -i 's/=true-/=on-/g' /etc/systemd/system/mund.service
+                echo "=============Daemon reloading============="
+                sudo systemctl daemon-reload
 		echo "restart the system..."
 		sudo systemctl restart mund
 
