@@ -12,10 +12,23 @@ cd .mun2
 
 mun2d config chain-id testmun --home $HOME/.mun2
 mun2d init to-the-sun --chain-id testmun -o --home $HOME/.mun2
-
+```
+# cài đặt ví 
+```
+mun2d keys add sun --keyring-backend test --home $HOME/.mun2
+#hoặc add ví cũ
+mun2d keys add sun --keyring-backend test --recover --home $HOME/.mun2
+```
+```
+#check
+mun2d keys list --keyring-backend test --home $HOME/.mun2
+```
+# tải genesis và add peer
+```
 curl --tlsv1 https://node1.mun.money/genesis? | jq ".result.genesis" > ~/.mun2/config/genesis.json
 sha256sum $HOME/.mun2/config/genesis.json # a558d6c06bd1744458aa2dd4b2da4dd014fcbe0de8de13d40a96d46f46067e84
-
+```
+```
 sed -i 's/stake/utmun/g' ~/.mun2/config/genesis.json
 sed -i 's|^minimum-gas-prices *=.*|minimum-gas-prices = "0.0001utmun"|g' $HOME/.mun2/config/app.toml
 seeds="b4eeaf7ca17e5186b181885714cedc6a78d20c9b@167.99.6.48:26656"
@@ -40,10 +53,12 @@ LimitNOFILE=65535
 [Install]
 WantedBy=multi-user.target
 EOF
-
+```
+```
 sudo systemctl daemon-reload
 sudo systemctl enable mun2d
 ```
+# snapshot
 ```
 sed -i.bak -E "s|^(enable[[:space:]]+=[[:space:]]+).*$|\1false|" ~/.mun2/config/config.toml
 sudo systemctl stop mun2d
